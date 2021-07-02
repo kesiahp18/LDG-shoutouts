@@ -1,0 +1,22 @@
+{
+  "name": "ldg-shoutouts",
+  "version": "1.0.0",
+  "description": "This application allows LDG employees to write and post a message that aknowledges the superior work of other employees, and automatically emails a copy of the message to that employee as well as their supervisor.",
+  "main": "shoutouts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kesiahp18/LDG-shoutouts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kesiahp18/LDG-shoutouts/issues"
+  },
+  "homepage": "https://github.com/kesiahp18/LDG-shoutouts#readme",
+  "dependencies": {
+    "nodemailer": "^6.6.2"
+  }
+}

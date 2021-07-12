@@ -63,6 +63,45 @@ router.get('/:id', (req, res) => {
     });
 })
 
+//Route to login
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        if(!dbUserData) {
+            res.status(400).json({message: 'No user with that email address!'});
+            return;
+        }
+        //verify
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if(!validPassword) {
+            res.status(400).json({message: 'Incorrect password!'});
+            return;
+        }
+        req.session.save(() => {
+            //Save session and declare session variables
+            req.session.user_id = dbUserData.id,
+            req.session.username = dbUserData.username,
+            req.session.email = dbUserData.email,
+            req.session.loggedIn = true;
+            res.json({ user: dbUserData, message: 'You are now logged in!' });
+        })
+    });
+});
+
+//Logout route
+router.post('/logout', (req, res) => {
+    if(req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        })
+    } else {
+        res.status(404).end();
+    }
+});
+
 //Delete user /api/users/:id
 router.delete('/:id', (req, res) => {
     User.destroy({

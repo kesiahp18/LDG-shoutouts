@@ -1,4 +1,24 @@
 <section class="add-margin">
- <h1>Home</h1>
- <button id="submit-shoutout">Submit</button>
+    <h1>Send a Shoutout</h1>
+    
+    <form method="post" action="send">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="email" name="email">
+        </p>
+        <p>
+            <label>Shoutout Message</label><br>
+            <textarea id="shoutout-body" name="shoutout"></textarea>
+        </p>
+        <p>
+            <button type="submit" id="submit-shoutout">Submit</button>
+
+        </p>
+    </form>
+</section>
+
 <script src="/javascript/shoutouts.js"></script>

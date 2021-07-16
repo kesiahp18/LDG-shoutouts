@@ -1,9 +1,9 @@
-const shoutoutButton = document.getElementById("submit-shoutout");
+var shoutoutButton = document.getElementById('submit-shoutout');
 
-console.log("hi");
+console.log('hi');
 
 function youClicked() {
-    console.log("You clicked!");
+    console.log('You clicked!');
 }
 
-shoutoutButton.addEventListener("click", youClicked);
+shoutoutButton.addEventListener('click', youClicked);

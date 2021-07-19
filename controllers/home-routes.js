@@ -12,7 +12,10 @@ router.get('/', (req, res) => {
     })
     .then(dbShoutoutData => {
         console.log(dbShoutoutData[0]);
+        //define shoutout partial for handlebars
+        const shoutouts = dbShoutoutData.map(shoutout => shoutout.get({plain: true}));
         res.render('homepage', {
+            shoutouts,
             loggedIn: req.session.loggedIn
         })
     })

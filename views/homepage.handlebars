@@ -1,24 +1,42 @@
-<section class="add-margin">
-    <h1>Send a Shoutout</h1>
-    
-    <form method="post" action="send">
-        <p>
-            <label>Name</label>
-            <input type="text" name="name">
-        </p>
-        <p>
-            <label>Email</label>
-            <input type="email" name="email">
-        </p>
-        <p>
-            <label>Shoutout Message</label><br>
-            <textarea id="shoutout-body" name="shoutout"></textarea>
-        </p>
-        <p>
-            <button type="submit" id="submit-shoutout">Submit</button>
+<ul class="shoutout-list">
+    <h2>Shoutouts</h2>
+    {{#each shoutouts as |shoutout|}}
+    <li>
+        <article class="shoutout">
+            <div class="post-block">
+                <h4 class="shoutout-subject">{{subject}}</h4>
+                <p class="shoutout-message">{{shoutout.message}}</p>
+            </div>
+            <div class="meta">
+                {{user.username}} {{created_at}}
+                
+                <a href="/post/{{id}}"></a>
+            </div>
+        </article>
+    </li>
+    {{/each}}
+</ul>
 
-        </p>
-    </form>
+<h2>Send a Shoutout</h2>
+    
+<form method="post" action="send">
+    <p>
+        <label>Name</label>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <label>Email</label>
+        <input type="email" name="email">
+    </p>
+    <p>
+        <label>Shoutout Message</label><br>
+        <textarea id="shoutout-body" name="shoutout"></textarea>
+    </p>
+    <p>
+        <button type="submit" id="submit-shoutout">Submit</button>
+
+    </p>
+</form>
 </section>
 
 <script src="/javascript/shoutouts.js"></script>
